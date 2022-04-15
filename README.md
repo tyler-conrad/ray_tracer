@@ -5,6 +5,8 @@ A Flutter application that implements a simple ray tracer based on the tutorial 
 The code uses the vector_math package extensively.  There rendering is parallelized based on the number of cores
 available.
 
+![screenshot](screenshot.png)
+
 Tested on:
 
  - Flutter 2.13.0-0.1.pre • channel beta •
