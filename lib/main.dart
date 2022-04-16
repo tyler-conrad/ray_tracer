@@ -231,10 +231,6 @@ class Dielectric implements Material {
     )) {
       reflectProb = schlick(cosine, refractionIndex);
     } else {
-      // scattered.setFrom(Ray(
-      //   origin: hit.point,
-      //   direction: reflected,
-      // ));
       reflectProb = 0.1;
     }
 
@@ -425,26 +421,7 @@ vm.Vector3 color(
   }
   final t = (ray.direction.normalized().y + 1.0) * 0.5;
   return vm.Vector3(1.0, 1.0, 1.0) * (1.0 - t) + vm.Vector3(0.5, 0.7, 1.0) * t;
-
-  // return vm.Vector3.all(1.0) -
-  //     (vm.Vector3(1.0, 1.0, 1.0) * (1.0 - t) + vm.Vector3(0.5, 0.7, 1.0) * t);
 }
-
-// Hitable scene() {
-//   final list = <Hitable>[];
-//   for (double z = -4.0; z < 5.0; z += 0.4) {
-//     for (double x = -4.0; x < 5.0; x += 0.4) {
-//       list.add(Sphere(vm.Vector3(x, 0.1, z), 0.1,
-//           Lambertian(albedo: vm.Vector3.random())));
-//     }
-//   }
-//   return HitableList(list);
-// }
-
-// int n = 0;
-// Iterable<int> nextInt() sync* {
-//   yield n++;
-// }
 
 Hitable scene(Iterable<double> random) {
   const sceneSize = 5;
@@ -521,77 +498,9 @@ Hitable scene(Iterable<double> random) {
   return HitableList(sphereList);
 }
 
-// double hit_sphere(vm.Vector3 center, double radius, Ray ray) {
-//   final oc = ray.origin - center;
-//   final a = ray.direction.dot(ray.direction);
-//   final b = 2.0 * oc.dot(ray.direction);
-//   final c = oc.dot(oc) - radius * radius;
-//   final discriminant = b * b - 4 * a * c;
-//   if (discriminant < 0.0) {
-//     return -1.0;
-//   }
-//   return (-b - math.pow(discriminant, 0.5)) / (2.0 * a);
-// }
-//
-// vm.Vector3 color2(Ray ray) {
-//   double t = hit_sphere(vm.Vector3(0.0, 0.0, -1.0), 0.5, ray);
-//   if (t > 0.0) {
-//     final n = (ray.pointAt(t) - vm.Vector3(0.0, 0.0, -1.0)).normalized();
-//     return vm.Vector3(n.x + 1.0, n.y + 1.0, n.z + 1.0) * 0.5;
-//   }
-//   t = (ray.direction.normalized().y + 1.0) * 0.5;
-//   return vm.Vector3(1.0, 1.0, 1.0) * (1.0 - t) + vm.Vector3(0.5, 0.7, 1.0) * t;
-// }
-
-// void Function() debounce(
-//   void Function() callback,
-//   int millis,
-// ) {
-//   async.Timer? _lastTimer;
-//
-//   return () {
-//     if (!(_lastTimer?.isActive ?? false)) {
-//       _lastTimer?.cancel();
-//       _lastTimer = async.Timer(
-//         Duration(milliseconds: millis),
-//         callback,
-//       );
-//     }
-//   };
-// }
-
-// final world = randomScene(500);
-
-// final world = scene();
-
 List<List<List<int>>> _renderChunk(RenderChunkConfig config) {
   const int _numAntiAliasingSamples = 32;
   const byteSize = 255.99;
-
-  // final world = HitableList([
-  //   Sphere(
-  //       vm.Vector3(0.0, 0.0, -1.0),
-  //       0.5,
-  //       Lambertian(
-  //         albedo: vm.Vector3(0.8, 0.3, 0.3),
-  //       )),
-  //   Sphere(
-  //       vm.Vector3(0.0, -100.5, -1.0),
-  //       100.0,
-  //       Lambertian(
-  //         albedo: vm.Vector3(0.8, 0.8, 0.0),
-  //       )),
-  //   Sphere(
-  //     vm.Vector3(1.0, 0.0, -1.0),
-  //     0.5,
-  //     Metal(albedo: vm.Vector3(0.8, 0.6, 0.2), fuzz: 0.2),
-  //   ),
-  //   Sphere(
-  //     vm.Vector3(-1.0, 0.0, -1.0),
-  //     0.5,
-  //     Dielectric(refractionIndex: 0.5),
-  //   ),
-  // ]);
 
   final world = scene(config.randomDoubles);
 
