@@ -7,14 +7,17 @@ available.
 
 ![screenshot](screenshot.png)
 
-Tested on:
+## Tested on
+Platform:
+- Ubuntu 20.04.4 LTS
+- Android 11
+   - Platform android-31, build-tools 31.0.0
+   - Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
 
- - Flutter 2.13.0-0.1.pre • channel beta •
- - https://github.com/flutter/flutter.git
- - Framework • revision 13a2fb10b8 (3 days ago) • 2022-04-12 15:34:25 -0500
- - Engine • revision 499984f99c
- - Tools • Dart 2.17.0 (build 2.17.0-266.1.beta) • DevTools 2.12.1
-   - Ubuntu 20.04.4 LTS
-   - Android 11
+ - Flutter:
+   - Flutter 2.13.0-0.2.pre • channel beta • https://github.com/flutter/flutter.git
+   - Framework • revision 8662e22bac (3 days ago) • 2022-04-20 08:21:52 -0700
+   - Engine • revision 24a02fa5ee
+   - Tools • Dart 2.17.0 (build 2.17.0-266.5.beta) • DevTools 2.12.2
 
 
