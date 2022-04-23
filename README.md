@@ -8,11 +8,11 @@ available.
 ![screenshot](screenshot.png)
 
 ## Tested on
-Platform:
-- Ubuntu 20.04.4 LTS
-- Android 11
-   - Platform android-31, build-tools 31.0.0
-   - Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
+ - Platform:
+   - Ubuntu 20.04.4 LTS
+   - Android 11
+     - Platform android-31, build-tools 31.0.0
+     - Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
 
  - Flutter:
    - Flutter 2.13.0-0.2.pre • channel beta • https://github.com/flutter/flutter.git
