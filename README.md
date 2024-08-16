@@ -1,23 +1,43 @@
 # ray_tracer
 
-A Flutter application that implements a simple ray tracer based on the tutorial [Ray Tracing in One Weekend](https://raytracing.github.io/).
+A Flutter application that implements a simple ray tracer based on the tutorial
+[Ray Tracing in One Weekend](https://raytracing.github.io/). The application
+leverages the [vector_math](https://pub.dev/packages/vector_math) and
+[bitmap](https://pub.dev/packages/bitmap) packages. Rendering is parallelized
+based on the number of available CPU cores.
 
-The code uses the vector_math package extensively.  There rendering is parallelized based on the number of cores
-available.
+![](screenshot.png)
 
-![screenshot](screenshot.png)
+## Features
+- **Ray Tracing**: Simulates the behavior of light rays to render realistic
+  images.
+- **Parallel Rendering**: Utilizes isolates to distribute rendering tasks.
+- **Materials**: Supports different materials like Lambertian, Metal, and
+  Dielectric.
+
+## Code Overview
+- **RenderChunkConfig**: Configuration for rendering a chunk of the output image
+  using isolates.
+- **Ray**: Represents a ray in 3D space.
+- **HitRecord**: Records details of a hit in the ray tracing simulation.
+- **Material**: Abstract class defining the behavior of materials in the ray
+  tracer.
+- **Lambertian, Metal, Dielectric**: Concrete implementations of different
+  materials.
+- **Hitable**: Abstract class for objects that can be hit by rays.
+- **HitableList, Sphere**: Implementations of hitable objects.
+- **Camera**: Represents the camera in the scene.
+- **color**: Function to calculate the color of a ray in the scene.
+- **scene**: Function to create a scene of spheres with different materials.
+- **renderChunk**: Function to render a chunk of the scene.
+- **RayTracer**: Flutter widget to render the ray traced scene.
+- **RayTracerApp**: Main Flutter application class.
 
 ## Tested on
- - Platform:
-   - Ubuntu 20.04.4 LTS
-   - Android 11
-     - Platform android-31, build-tools 31.0.0
-     - Java version OpenJDK Runtime Environment (build 11.0.11+0-b60-7590822)
-
- - Flutter:
-   - Flutter 2.13.0-0.2.pre • channel beta • https://github.com/flutter/flutter.git
-   - Framework • revision 8662e22bac (3 days ago) • 2022-04-20 08:21:52 -0700
-   - Engine • revision 24a02fa5ee
-   - Tools • Dart 2.17.0 (build 2.17.0-266.5.beta) • DevTools 2.12.2
-
-
+**Platform:**
+- macOS Sonoma 14.6.1
+**Flutter:**
+- Flutter 3.24.0 • channel stable • https://github.com/flutter/flutter.git
+- Framework • revision 80c2e84975 (2 weeks ago) • 2024-07-30 23:06:49 +0700
+- Engine • revision b8800d88be
+- Tools • Dart 3.5.0 • DevTools 2.37.2
